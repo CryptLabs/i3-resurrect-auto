@@ -1,22 +1,22 @@
-# i3-resurrect-auto
+# 🔄 i3-resurrect-auto
 
 Automatically save and restore i3 workspaces, layouts, and applications using [i3-resurrect](https://github.com/JonnyHaystack/i3-resurrect).
 
-## Features
+## ✨ Features
 
-- **Automatic saving** on shutdown, reboot, and logout via rofi power menu integration
-- **Automatic restoration** on i3 startup
-- **Named profiles** for organised workspace management
-- **Rofi menu** for manual save/restore/delete operations
+- 💾 **Automatic saving** on shutdown, reboot, and logout via rofi power menu integration
+- 🚀 **Automatic restoration** on i3 startup
+- 📁 **Named profiles** for organised workspace management
+- 🎯 **Rofi menus** for manual save/restore/delete operations
 
-## Prerequisites
+## 📋 Prerequisites
 
 - [i3wm](https://i3wm.org/)
 - [i3-resurrect](https://github.com/JonnyHaystack/i3-resurrect)
 - [rofi](https://github.com/davatorium/rofi)
 - bash
 
-### Installing i3-resurrect
+### 📦 Installing i3-resurrect
 
 **Arch Linux (AUR):**
 
@@ -30,7 +30,7 @@ yay -S i3-resurrect
 pip install i3-resurrect
 ```
 
-## Installation
+## 🛠️ Installation
 
 1. **Clone the repository:**
 
@@ -47,9 +47,9 @@ pip install i3-resurrect
    ```
 
    This will:
-   - Copy scripts to `~/.config/i3/scripts/`
-   - Make them executable
-   - Create the i3-resurrect profiles directory
+   - 📂 Copy scripts to `~/.config/i3/scripts/`
+   - ⚙️ Make them executable
+   - 📁 Create the i3-resurrect profiles directory
 
 3. **Configure your workspace mapping:**
 
@@ -74,6 +74,9 @@ pip install i3-resurrect
 
    # Optional: keybinding for rofi i3-resurrect menu
    bindsym $mod+Shift+r exec --no-startup-id ~/.config/i3/scripts/i3-resurrect-rofi.sh
+
+   # Alternative: simple rofi menu (individual profiles only)
+   # bindsym $mod+Shift+r exec --no-startup-id ~/.config/i3/scripts/i3-resurrect-rofi-simple.sh
    ```
 
 5. **Integrate with your power menu:**
@@ -100,16 +103,16 @@ pip install i3-resurrect
    i3-msg reload
    ```
 
-## Usage
+## 🚀 Usage
 
-### Automatic Operation
+### ⚡ Automatic Operation
 
 Once configured:
 
-- **On startup:** Workspaces are automatically restored
-- **On shutdown/reboot/logout:** Workspaces are automatically saved (if integrated with power menu)
+- 🟢 **On startup:** Workspaces are automatically restored
+- 🔴 **On shutdown/reboot/logout:** Workspaces are automatically saved (if integrated with power menu)
 
-### Manual Operation
+### 🎮 Manual Operation
 
 **Save all workspaces:**
 
@@ -131,38 +134,38 @@ Press `$mod+Shift+r` to open the rofi menu for manual save/restore/delete operat
 
 Two rofi scripts are included for manual workspace management:
 
-#### `i3-resurrect-rofi.sh` (Full Menu)
+#### 📋 `i3-resurrect-rofi.sh` (Full Menu)
 
 This is the recommended script with additional bulk operations:
 
 | Action | Description |
 |--------|-------------|
-| **Save All** | Saves all workspaces defined in `config.sh` |
-| **Restore All** | Restores all workspaces defined in `config.sh` |
-| **Save** | Save a single profile (layout + programs) |
-| **Restore** | Restore a single profile |
-| **Delete** | Delete a saved profile |
+| 💾 **Save All** | Saves all workspaces defined in `config.sh` |
+| 🚀 **Restore All** | Restores all workspaces defined in `config.sh` |
+| 💾 **Save** | Save a single profile (layout + programs) |
+| 🔄 **Restore** | Restore a single profile |
+| 🗑️ **Delete** | Delete a saved profile |
 
 After selecting Save/Restore/Delete, you'll be prompted to:
 1. Choose a profile name
 2. Choose a target: Both, Programs only, or Layout only
 
-#### `i3-resurrect-rofi-simple.sh` (Simple Menu)
+#### 📋 `i3-resurrect-rofi-simple.sh` (Simple Menu)
 
 A lightweight alternative without bulk operations:
 
 | Action | Description |
 |--------|-------------|
-| **Save** | Save a single profile |
-| **Restore** | Restore a single profile |
-| **Delete** | Delete a saved profile |
+| 💾 **Save** | Save a single profile |
+| 🔄 **Restore** | Restore a single profile |
+| 🗑️ **Delete** | Delete a saved profile |
 
 **Workflow:**
 1. Select action → Save / Restore / Delete
 2. Select profile → Lists existing profiles
 3. Select target → Both / Programs / Layout
 
-### Saved Files Location
+### 📂 Saved Files Location
 
 Profiles are saved to `~/.i3/i3-resurrect/profiles/`:
 
@@ -175,9 +178,9 @@ Profiles are saved to `~/.i3/i3-resurrect/profiles/`:
 └── ...
 ```
 
-## Configuration
+## ⚙️ Configuration
 
-### Workspace Mapping
+### 🗺️ Workspace Mapping
 
 Edit `~/.config/i3/scripts/config.sh`:
 
@@ -189,7 +192,7 @@ declare -A workspace_map=(
 )
 ```
 
-### Swallow Criteria
+### 🎯 Swallow Criteria
 
 The save script uses `--swallow=class,instance,title` by default. You can modify this in `save-workspaces.sh` if needed. Options are:
 
@@ -198,13 +201,13 @@ The save script uses `--swallow=class,instance,title` by default. You can modify
 - `title` - Window title
 - `window_role` - Window role
 
-### Restore Delay
+### ⏱️ Restore Delay
 
 The restore script has a 2-second delay by default to allow i3 to fully initialise. Adjust the `sleep 2` value in `restore-workspaces.sh` if needed.
 
-## Troubleshooting
+## 🔧 Troubleshooting
 
-### Workspaces not saving
+### ❌ Workspaces not saving
 
 1. Check your workspace names match i3's actual workspace identifiers:
 
@@ -214,7 +217,7 @@ The restore script has a 2-second delay by default to allow i3 to fully initiali
 
 2. Ensure the workspace mapping in `config.sh` uses the correct workspace names/numbers.
 
-### Applications not restoring correctly
+### ❌ Applications not restoring correctly
 
 1. Some applications may need custom swallow criteria. Check the `*_layout.json` files and adjust swallow rules as needed.
 
@@ -224,7 +227,7 @@ The restore script has a 2-second delay by default to allow i3 to fully initiali
    i3-resurrect restore -w 1 -p Workspace1
    ```
 
-### Layout files are empty
+### ❌ Layout files are empty
 
 This usually means the workspace name doesn't match what i3 reports. Verify with:
 
@@ -232,29 +235,30 @@ This usually means the workspace name doesn't match what i3 reports. Verify with
 i3-msg -t get_workspaces | jq '.[].name'
 ```
 
-## File Structure
+## 📁 File Structure
 
 ```
 i3-resurrect-auto/
-├── README.md
-├── LICENSE
-├── install.sh
-└── scripts/
-    ├── config.sh              # Workspace mapping configuration
-    ├── save-workspaces.sh     # Save all workspaces
-    ├── restore-workspaces.sh  # Restore all workspaces
-    └── i3-resurrect-rofi.sh   # Rofi menu for manual operations
+├── 📄 README.md
+├── 📄 LICENSE
+├── 📄 install.sh
+└── 📂 scripts/
+    ├── config.sh                    # Workspace mapping configuration
+    ├── save-workspaces.sh           # Save all workspaces
+    ├── restore-workspaces.sh        # Restore all workspaces
+    ├── i3-resurrect-rofi.sh         # Rofi menu with Save All/Restore All
+    └── i3-resurrect-rofi-simple.sh  # Simple rofi menu (individual profiles only)
 ```
 
-## Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## License
+## 📜 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgements
+## 🙏 Acknowledgements
 
 - [i3-resurrect](https://github.com/JonnyHaystack/i3-resurrect) by JonnyHaystack
 - [i3wm](https://i3wm.org/)
@@ -262,4 +266,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Made with ❤️ using Linux and Vim
+<p align="center">
+  Made with ❤️ using
+  <br><br>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="Linux" width="50" height="50"/>
+  &nbsp;&nbsp;&nbsp;
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vim/vim-original.svg" alt="Vim" width="50" height="50"/>
+  <br><br>
+  🐧 Linux &nbsp;&nbsp;|&nbsp;&nbsp; 📝 Vim
+</p>
