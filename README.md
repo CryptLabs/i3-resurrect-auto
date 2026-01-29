@@ -272,6 +272,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="Linux" width="50" height="50"/>
   &nbsp;&nbsp;&nbsp;
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vim/vim-original.svg" alt="Vim" width="50" height="50"/>
-  <br><br>
-  🐧 Linux &nbsp;&nbsp;|&nbsp;&nbsp; 📝 Vim
 </p>
