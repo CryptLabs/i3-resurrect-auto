@@ -35,7 +35,7 @@ pip install i3-resurrect
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/YOUR_USERNAME/i3-resurrect-auto.git
+   git clone https://github.com/CryptLabs/i3-resurrect-auto.git
    cd i3-resurrect-auto
    ```
 
@@ -123,9 +123,44 @@ Once configured:
 ~/.config/i3/scripts/restore-workspaces.sh
 ```
 
-**Rofi menu** (if keybinding configured):
+**Rofi menus** (if keybinding configured):
 
-Press `$mod+Shift+r` to open the rofi menu for manual save/restore/delete operations on individual profiles.
+Press `$mod+Shift+r` to open the rofi menu for manual save/restore/delete operations.
+
+### 🎯 Rofi Menu Scripts
+
+Two rofi scripts are included for manual workspace management:
+
+#### `i3-resurrect-rofi.sh` (Full Menu)
+
+This is the recommended script with additional bulk operations:
+
+| Action | Description |
+|--------|-------------|
+| **Save All** | Saves all workspaces defined in `config.sh` |
+| **Restore All** | Restores all workspaces defined in `config.sh` |
+| **Save** | Save a single profile (layout + programs) |
+| **Restore** | Restore a single profile |
+| **Delete** | Delete a saved profile |
+
+After selecting Save/Restore/Delete, you'll be prompted to:
+1. Choose a profile name
+2. Choose a target: Both, Programs only, or Layout only
+
+#### `i3-resurrect-rofi-simple.sh` (Simple Menu)
+
+A lightweight alternative without bulk operations:
+
+| Action | Description |
+|--------|-------------|
+| **Save** | Save a single profile |
+| **Restore** | Restore a single profile |
+| **Delete** | Delete a saved profile |
+
+**Workflow:**
+1. Select action → Save / Restore / Delete
+2. Select profile → Lists existing profiles
+3. Select target → Both / Programs / Layout
 
 ### Saved Files Location
 
